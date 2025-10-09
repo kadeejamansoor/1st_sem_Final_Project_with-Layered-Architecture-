@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="913.0" prefWidth="1669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.SalaryManagmentController">
+   <children>
+      <ImageView fitHeight="1023.0" fitWidth="1898.0" layoutY="-14.0" pickOnBounds="true" smooth="false">
+         <image>
+
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="98.0" layoutY="59.0" prefHeight="39.0" prefWidth="281.0" text="Salary Management" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Group layoutX="1135.0" layoutY="413.0" />
+      <Group layoutX="1581.0" layoutY="307.0" />
+      <Group layoutX="284.0" layoutY="582.0">
+         <children>
+            <Group layoutX="6.0" layoutY="-28.0" />
+         </children>
+      </Group>
+      <Group layoutX="103.0" layoutY="207.0">
+         <children>
+            <Label layoutX="15.0" layoutY="72.0" prefHeight="21.0" prefWidth="154.0" text="Date" textFill="WHITE" />
+         </children>
+      </Group>
+      <Label layoutX="121.0" layoutY="139.0" prefHeight="21.0" prefWidth="154.0" text="Salary Id" textFill="WHITE" />
+      <TextField fx:id="txtSalaryId" layoutX="117.0" layoutY="177.0" onAction="#codeSearchOnAction" prefHeight="41.0" prefWidth="289.0" />
+      <Label layoutX="559.0" layoutY="148.0" prefHeight="21.0" prefWidth="154.0" text="Full name" textFill="WHITE" />
+      <TextField fx:id="txtFullName" layoutX="559.0" layoutY="179.0" prefHeight="41.0" prefWidth="355.0" />
+      <Label layoutX="1036.0" layoutY="146.0" prefHeight="21.0" prefWidth="154.0" text="Amount" textFill="WHITE" />
+      <TextField fx:id="txtAmount" layoutX="1036.0" layoutY="179.0" prefHeight="41.0" prefWidth="355.0" />
+      <Group layoutX="327.0" layoutY="466.0">
+         <children>
+            <JFXButton onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Clear" textFill="#f8f5f5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="203.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: yellow;" text="Delete">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="409.0" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: yellow;" text="Update">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="622.0" onAction="#btnSaveOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: yellow;" text="Save">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Group>
+      <TableView fx:id="tblSalary" layoutX="98.0" layoutY="563.0" prefHeight="395.0" prefWidth="1710.0">
+        <columns>
+          <TableColumn fx:id="colSalaryId" prefWidth="237.0" text="Salary Id" />
+            <TableColumn fx:id="colFullName" prefWidth="474.0" text="Full name" />
+            <TableColumn fx:id="colAmount" prefWidth="332.6666259765625" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="327.66668701171875" text="Date" />
+            <TableColumn fx:id="colEmployeeId" prefWidth="338.3333740234375" text="Employee Id" />
+        </columns>
+      </TableView>
+      <Label layoutX="564.0" layoutY="273.0" prefHeight="21.0" prefWidth="154.0" text="Employee Id" textFill="WHITE" />
+      <TextField fx:id="txtEmployeeId" layoutX="560.0" layoutY="311.0" prefHeight="41.0" prefWidth="289.0" />
+      <DatePicker fx:id="dtpkSalaryDate" layoutX="118.0" layoutY="312.0" prefHeight="41.0" prefWidth="289.0" />
+   </children>
+</AnchorPane>

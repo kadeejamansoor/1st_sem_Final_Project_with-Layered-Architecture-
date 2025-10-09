@@ -1,0 +1,19 @@
+.axis{
+    -fx-stroke: #FFF;
+    -fx-fill: #FFF;
+    -fx-font-size: 20;
+    -fx-tick-label-fill: #FFF;
+    -fx-label-fill: #FFF;
+}
+.shadow{
+    -fx-effect: dropshadow( three-pass-box ,white,10.0,0,0,10.0);
+}
+.combo-box-check{
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
+    -fx-font-size: 20;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}

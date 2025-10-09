@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="996.0" prefWidth="1918.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.SettingFormController">
+   <children>
+      <ImageView fitHeight="996.0" fitWidth="2322.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="198.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setting">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="456.0" layoutY="442.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Update" textFill="WHITE" />
+      <JFXButton layoutX="603.0" layoutY="442.0" onAction="#btnDeleteOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Delete" textFill="WHITE" />
+      <JFXButton layoutX="302.0" layoutY="443.0" onAction="#btnSaveOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: yellow;" text="Save" />
+      <TextField fx:id="txtUsername" layoutX="301.0" layoutY="259.0" prefHeight="41.0" prefWidth="355.0" />
+      <Text fill="WHITE" layoutX="301.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" />
+      <Text fill="WHITE" layoutX="774.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
+      <JFXButton layoutX="749.0" layoutY="440.0" onAction="#btnClearOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Clear" textFill="WHITE" />
+      <PasswordField fx:id="txtPassword" layoutX="772.0" layoutY="260.0" prefHeight="41.0" prefWidth="355.0" />
+      <Pane layoutX="2.0" layoutY="1.0" prefHeight="996.0" prefWidth="125.0" style="-fx-background-color: #013D45;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="44.0" layoutX="31.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/background/original-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="dashboardbtn" layoutX="27.0" layoutY="140.0" onAction="#btnDashboardOnAction" text="dashboard">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/Dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="bookingbtn" layoutX="24.0" layoutY="226.0" onAction="#btnBookingOnAction" text="booking">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/menu_book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="reservationbtn" layoutX="22.0" layoutY="305.0" onAction="#btnReservationOnAction" text="reservation">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/Assignment.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="roombtn" layoutX="23.0" layoutY="385.0" onAction="#btnRoomOnAction" text="room">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/King%20bed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="stockbtn" layoutX="26.0" layoutY="466.0" onAction="#btnStockOnAction" text="stock">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/inventory.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="employeebtn" layoutX="32.0" layoutY="551.0" onAction="#btnEmployeeOnAction" text="employee">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/group.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="billingbtn" layoutX="25.0" layoutY="621.0" onAction="#btnBillingOnAction" text="billing">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/attach_money.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="reportbtn" layoutX="27.0" layoutY="698.0" onAction="#btnReportOnAction" text="report">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/🦆%20icon%20_bar%20chart_.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="logoutbtn" layoutX="18.0" layoutY="901.0" onAction="#btnLogoutOnAction">
+               <graphic>
+                  <ImageView fitHeight="73.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/NicePng_cammy-png_1829287%201.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="settingbtn" layoutX="28.0" layoutY="779.0" onAction="#btnSettingOnAction" text="Button">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

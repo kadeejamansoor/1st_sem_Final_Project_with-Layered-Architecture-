@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="996.0" prefWidth="1918.0" stylesheets="@../assets/style/Login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.EmployeeManagementController">
+   <children>
+      <ImageView fitHeight="996.0" fitWidth="2322.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="172.0" layoutY="42.0" prefHeight="913.0" prefWidth="1669.0" styleClass="pane-box">
+         <children>
+            <Text fill="WHITE" layoutX="99.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Management">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Text>
+            <Group layoutX="168.0" layoutY="256.0">
+               <children>
+                  <TextField fx:id="txtID" layoutY="-50.0" onAction="#empIdOnaction" prefHeight="41.0" prefWidth="355.0" />
+                  <TextField fx:id="txtName" layoutY="26.0" prefHeight="41.0" prefWidth="355.0" />
+                  <Text fill="WHITE" layoutX="1.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                  <Text fill="WHITE" layoutX="3.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contac Numbert" />
+               </children>
+            </Group>
+            <JFXButton layoutX="1350.0" layoutY="63.0" onAction="#btnSalaryManagementOnAction" prefHeight="43.0" prefWidth="214.0" style="-fx-background-color: #013D45;" text="Salary Management" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="483.0" layoutY="490.0" onAction="#updateOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Update" textFill="WHITE" />
+            <Group layoutX="823.0" layoutY="231.0">
+               <children>
+                  <TextField fx:id="txtAddress" layoutX="1.0" layoutY="-27.0" prefHeight="41.0" prefWidth="355.0" />
+                  <Text fill="WHITE" layoutY="-34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+               </children>
+            </Group>
+            <JFXButton layoutX="325.0" layoutY="490.0" onAction="#deleteOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Delete" textFill="WHITE" />
+            <JFXButton layoutX="168.0" layoutY="490.0" onAction="#clearOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: yellow;" text="Clear" />
+            <JFXButton layoutX="624.0" layoutY="490.0" onAction="#saveOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Save" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="168.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID" />
+            <Group layoutX="825.0" layoutY="260.0">
+               <children>
+                  <TextField fx:id="txtRole" layoutX="1.0" layoutY="23.0" prefHeight="41.0" prefWidth="355.0" />
+                  <Text fill="WHITE" layoutY="9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
+               </children>
+            </Group>
+            <TableView fx:id="tbl" layoutX="335.0" layoutY="617.0" prefHeight="247.0" prefWidth="946.0">
+               <columns>
+                  <TableColumn fx:id="employeeManagement" prefWidth="187.00003051757812" text="Employee Management" />
+                  <TableColumn fx:id="name" prefWidth="180.0" text="Name" />
+                  <TableColumn fx:id="contact" prefWidth="169.0" text="Contact" />
+                  <TableColumn fx:id="address" prefWidth="201.0" text="Address" />
+                  <TableColumn fx:id="role" prefWidth="208.0" text="Role" />
+               </columns>
+            </TableView>
+            <TextField fx:id="txtNumber" layoutX="168.0" layoutY="364.0" prefHeight="41.0" prefWidth="355.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="2.0" layoutY="1.0" prefHeight="996.0" prefWidth="125.0" style="-fx-background-color: #013D45;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="44.0" layoutX="31.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/background/original-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="dashboardbtn" layoutX="27.0" layoutY="140.0" onAction="#btnDashboardOnAction" text="dashboard">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/Dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="bookingbtn" layoutX="24.0" layoutY="226.0" onAction="#btnBookingOnAction" text="booking">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/menu_book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="reservationbtn" layoutX="22.0" layoutY="305.0" onAction="#btnReservationOnAction" text="reservation">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/Assignment.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="roombtn" layoutX="23.0" layoutY="385.0" onAction="#btnRoomOnAction" text="room">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/King%20bed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="stockbtn" layoutX="26.0" layoutY="466.0" onAction="#btnStockOnAction" text="stock">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/inventory.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="employeebtn" layoutX="32.0" layoutY="551.0" onAction="#btnEmployeeOnAction" text="employee">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/group.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="billingbtn" layoutX="25.0" layoutY="621.0" onAction="#btnBillingOnAction" text="billing">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/attach_money.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="reportbtn" layoutX="27.0" layoutY="698.0" onAction="#btnReportOnAction" text="report">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/🦆%20icon%20_bar%20chart_.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="logoutbtn" layoutX="18.0" layoutY="901.0" onAction="#btnLogoutOnAction">
+               <graphic>
+                  <ImageView fitHeight="73.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/NicePng_cammy-png_1829287%201.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="settingbtn" layoutX="28.0" layoutY="779.0" onAction="#btnSettingOnAction" text="Button">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

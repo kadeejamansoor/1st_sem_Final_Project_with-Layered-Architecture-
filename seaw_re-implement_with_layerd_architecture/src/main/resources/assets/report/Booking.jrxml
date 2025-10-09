@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Booking" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="884ea7ef-d25e-4336-bb72-1d959488d69f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<queryString language="SQL">
+		<![CDATA[Select * From booking]]>
+	</queryString>
+	<field name="booking_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="booking_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="booking"/>
+	</field>
+	<field name="check_in" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="check_in"/>
+		<property name="com.jaspersoft.studio.field.label" value="check_in"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="booking"/>
+	</field>
+	<field name="check_out" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="check_out"/>
+		<property name="com.jaspersoft.studio.field.label" value="check_out"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="booking"/>
+	</field>
+	<field name="no_of_guest" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="no_of_guest"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_of_guest"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="booking"/>
+	</field>
+	<field name="select_room" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="select_room"/>
+		<property name="com.jaspersoft.studio.field.label" value="select_room"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="booking"/>
+	</field>
+	<field name="guest_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="guest_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="guest_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="booking"/>
+	</field>
+	<group name="booking_id">
+		<groupExpression><![CDATA[$F{booking_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="85" backcolor="rgba(59, 97, 90, 0.7647059)" uuid="88ad8064-5654-4d66-b094-c85ec4d0d6a9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="220" y="25" width="122" height="45" forecolor="#FFFFFF" backcolor="#4A4FD4" uuid="1f67ea33-6fee-4ff9-93f2-ed4166962321"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booking]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="59" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="40" backcolor="#C7C6BF" uuid="97c20562-3df8-40d6-9de2-c1b1264e090f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="95" height="30" backcolor="#918E8E" uuid="8f49033a-833c-46ce-a21e-d6d1246e1a8b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc8054ba-796b-481e-8f7a-493b7c184998"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[booking_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="0" width="92" height="30" backcolor="#918E8E" uuid="5802c685-3a74-478e-ae8a-0af9903a94cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e200dbc9-1c32-4a9c-a002-e0acaf7fa03e"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[check_in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="92" height="30" backcolor="#918E8E" uuid="369a4188-7d42-45cc-9495-d3c5bbc7106f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4d39f63e-3c1c-42d5-9ce9-de098b982db0"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[check_out]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="92" height="30" backcolor="#918E8E" uuid="e81245ae-1350-4c65-9ddd-f7afa43df84d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a62f786d-beb3-4518-9bb1-0c5deaae6eeb"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[no_of_guest]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="92" height="30" backcolor="#918E8E" uuid="60df64d8-2931-47bb-9e44-7fa1aa0bf39b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b658584a-e94b-4519-911a-f30e2cdd8ba1"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[select_room]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="0" width="92" height="30" backcolor="#918E8E" uuid="ee16dc9d-af95-4db1-b9bc-c43bcfbb5102">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3cf40f26-2488-4e5f-85b4-e1a2f3dfe4f2"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[guest_id]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="29" backcolor="#FFFFFF" uuid="ec43458e-feb3-4e06-84ee-d8614be11ccc"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="95" height="30" backcolor="#05FBFF" uuid="8c891922-4868-4b91-84fc-0d2136f8a3b5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bc8054ba-796b-481e-8f7a-493b7c184998"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{booking_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="0" width="92" height="30" backcolor="#05FBFF" uuid="0799fe10-c3b1-4c85-8549-af64368cf058">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e200dbc9-1c32-4a9c-a002-e0acaf7fa03e"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{check_in}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="0" width="92" height="30" backcolor="#05FBFF" uuid="54f01113-10e5-486c-bd4d-307648301d05">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4d39f63e-3c1c-42d5-9ce9-de098b982db0"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{check_out}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="92" height="30" backcolor="#05FBFF" uuid="51f3edc3-5f06-443e-a0e8-8d1a2e067a0f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a62f786d-beb3-4518-9bb1-0c5deaae6eeb"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_of_guest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="0" width="92" height="30" backcolor="#05FBFF" uuid="f7c88c9b-0d3d-41fd-966a-fbf1225ac5a2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b658584a-e94b-4519-911a-f30e2cdd8ba1"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{select_room}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="0" width="92" height="30" backcolor="#05FBFF" uuid="811920fa-fe96-4ffa-b197-3bb4f1c08d39">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3cf40f26-2488-4e5f-85b4-e1a2f3dfe4f2"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{guest_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

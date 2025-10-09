@@ -1,0 +1,18 @@
+.Welcome-from-button{
+    -fx-background-radius:10 ;
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-text-fill: #fff;
+}
+
+.pane-box{
+    -fx-background-color: rgba(255, 255, 255,0.2);
+    -fx-background-radius: 20;
+
+}
+.txt-f{
+    -fx-text-fill: #fff;
+}
+
+.box{
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+}

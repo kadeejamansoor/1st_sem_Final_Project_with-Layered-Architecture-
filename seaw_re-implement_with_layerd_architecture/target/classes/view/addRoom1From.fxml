@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="996.0" prefWidth="1918.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.AddRoomController">
+   <children>
+      <ImageView fitHeight="996.0" fitWidth="2322.0" layoutX="-22.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="215.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Room">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtFloorNumber" layoutX="359.0" layoutY="403.0" prefHeight="41.0" prefWidth="355.0" promptText="2" />
+      <Text fill="WHITE" layoutX="360.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Floor Number" />
+      <JFXButton layoutX="1085.0" layoutY="344.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Update" textFill="WHITE" />
+      <JFXButton layoutX="1088.0" layoutY="436.0" onAction="#btnDeleteOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Delete" textFill="WHITE" />
+      <JFXButton layoutX="1089.0" layoutY="527.0" onAction="#btnClearOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: yellow;" text="Clear" />
+      <JFXButton layoutX="1083.0" layoutY="251.0" onAction="#btnSaveOnAction" prefHeight="43.0" prefWidth="99.0" style="-fx-background-color: #013D45;" text="Save" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="360.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type" />
+      <TextField fx:id="txtCapacity" layoutX="360.0" layoutY="487.0" prefHeight="41.0" prefWidth="355.0" promptText="4" />
+      <Text fill="WHITE" layoutX="361.0" layoutY="479.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacity" />
+      <TextField fx:id="txtRate" layoutX="360.0" layoutY="567.0" prefHeight="41.0" prefWidth="355.0" promptText="45000" />
+      <Text fill="WHITE" layoutX="361.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate" />
+      <ComboBox fx:id="cmbRoomtype" layoutX="359.0" layoutY="324.0" prefHeight="41.0" prefWidth="355.0" promptText="Standard" />
+      <TextField fx:id="txtRoomid" layoutX="359.0" layoutY="249.0" onAction="#btnCodeSearchOnAction" prefHeight="41.0" prefWidth="355.0" promptText="r001" />
+      <Text fill="WHITE" layoutX="360.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Id" />
+   </children>
+</AnchorPane>

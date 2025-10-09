@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="913.0" prefWidth="1669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.GuestManagementFormController">
+   <children>
+      <ImageView fitHeight="1023.0" fitWidth="1898.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="93.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest Id">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtGuestId" layoutX="93.0" layoutY="187.0" onAction="#codeSearchOnAction" prefHeight="41.0" prefWidth="300.0" promptText="g001" />
+      <Label layoutX="63.0" layoutY="55.0" prefHeight="39.0" prefWidth="281.0" text="Guest Management" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblGuest" layoutX="103.0" layoutY="525.0" prefHeight="464.0" prefWidth="1724.0">
+         <columns>
+            <TableColumn fx:id="colGuestId" minWidth="0.0" prefWidth="183.66665649414062" text="Guest Id" />
+            <TableColumn fx:id="colGuestFullName" minWidth="0.0" prefWidth="326.3333435058594" text="Guest Full Name" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="229.0" text="Address" />
+            <TableColumn fx:id="colGuestCity" minWidth="0.0" prefWidth="202.0" text="City" />
+            <TableColumn fx:id="colPostalCode" minWidth="0.0" prefWidth="231.0" text="Postal Code" />
+            <TableColumn fx:id="colCountry" minWidth="0.0" prefWidth="241.0" text="Country" />
+            <TableColumn fx:id="colState" minWidth="0.0" prefWidth="155.3333740234375" text="Email" />
+            <TableColumn fx:id="colAge" minWidth="0.0" prefWidth="173.0" text="Age" />
+         </columns>
+      </TableView>
+      <Text fill="WHITE" layoutX="93.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal Code">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPostalCode" layoutX="93.0" layoutY="284.0" prefHeight="41.0" prefWidth="300.0" promptText="8056" />
+      <Text fill="WHITE" layoutX="563.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest Full Name">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtGuestFullName" layoutX="563.0" layoutY="189.0" prefHeight="41.0" prefWidth="300.0" promptText="John Doe" />
+      <Text fill="WHITE" layoutX="566.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCountry" layoutX="566.0" layoutY="287.0" prefHeight="41.0" prefWidth="300.0" promptText="usa" />
+      <Text fill="WHITE" layoutX="1042.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtAddress" layoutX="1042.0" layoutY="191.0" prefHeight="41.0" prefWidth="300.0" promptText="1st street" />
+      <Text fill="WHITE" layoutX="1045.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtState" layoutX="1045.0" layoutY="288.0" prefHeight="41.0" prefWidth="300.0" promptText="new york" />
+      <Text fill="WHITE" layoutX="1514.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCity" layoutX="1514.0" layoutY="193.0" prefHeight="41.0" prefWidth="300.0" promptText="new york" />
+      <Text fill="WHITE" layoutX="1515.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtAge" layoutX="1515.0" layoutY="283.0" prefHeight="41.0" prefWidth="300.0" promptText="34" />
+      <JFXButton layoutX="98.0" layoutY="382.0" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="453.0" layoutY="381.0" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Clear" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="277.0" layoutY="381.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

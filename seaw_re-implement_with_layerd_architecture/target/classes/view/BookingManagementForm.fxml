@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="913.0" prefWidth="1669.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.BookingManagementForm">
+   <children>
+      <ImageView fitHeight="1023.0" fitWidth="1898.0" layoutY="-14.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="53.0" layoutY="45.0" prefHeight="39.0" prefWidth="281.0" text="Booking Management" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblBooking" layoutX="93.0" layoutY="515.0" prefHeight="464.0" prefWidth="1724.0">
+         <columns>
+            <TableColumn fx:id="colBookingid" minWidth="0.0" prefWidth="148.0" text="Booking Id" />
+            <TableColumn fx:id="colChecking" minWidth="0.0" prefWidth="280.0" text="Check-In" />
+            <TableColumn fx:id="colCheckout" minWidth="0.0" prefWidth="247.0" text="Check-Out" />
+            <TableColumn fx:id="colGuest" minWidth="0.0" prefWidth="296.0" text="Guest" />
+            <TableColumn fx:id="colSelectroom" minWidth="0.0" prefWidth="256.0" text="Select Room" />
+            <TableColumn fx:id="colGuestId" minWidth="0.0" prefWidth="225.0" text="Guest Id" />
+            <TableColumn fx:id="colStatus" minWidth="0.0" prefWidth="271.0" text="Status" />
+         </columns>
+      </TableView>
+      <Group layoutX="282.0" layoutY="161.0" />
+      <Group layoutX="1135.0" layoutY="413.0" />
+      <Group layoutX="1002.0" layoutY="138.0" />
+      <Text fill="WHITE" layoutX="425.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-In">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="100.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-Out">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="426.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="101.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="96.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Id">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtBookingId" layoutX="96.0" layoutY="203.0" onAction="#codeSearchOnAction" prefHeight="41.0" prefWidth="273.0" promptText="bk001" />
+      <DatePicker fx:id="dtpkCheckin" layoutX="422.0" layoutY="203.0" prefHeight="41.0" prefWidth="277.0" promptText="2023-04-01" />
+      <DatePicker fx:id="dtpkCheckout" layoutX="98.0" layoutY="287.0" prefHeight="41.0" prefWidth="273.0" promptText="2023-04-12" />
+      <JFXButton layoutX="818.0" layoutY="380.0" onAction="#btnClearOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Clear" textFill="#f8f5f5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="815.0" layoutY="201.0" onAction="#btnUpdateOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="817.0" layoutY="291.0" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1493.0" layoutY="71.0" onAction="#btnGuestManagementOnAction" prefHeight="39.0" prefWidth="302.0" style="-fx-background-color: yellow;" text="Guest Management">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtGuestId" layoutX="424.0" layoutY="381.0" prefHeight="41.0" prefWidth="273.0" promptText="R001" />
+      <Text fill="WHITE" layoutX="426.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest Id">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cmbSelectRoom" layoutX="103.0" layoutY="376.0" prefHeight="41.0" prefWidth="273.0" promptText="R001" />
+      <ComboBox fx:id="cmbGuest" layoutX="425.0" layoutY="287.0" prefHeight="41.0" prefWidth="273.0" promptText="1" />
+   </children>
+</AnchorPane>

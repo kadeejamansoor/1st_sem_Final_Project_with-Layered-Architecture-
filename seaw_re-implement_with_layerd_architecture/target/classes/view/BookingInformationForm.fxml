@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="996.0" prefWidth="1918.0" stylesheets="@../assets/style/Login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.BookingInformationFormController">
+   <children>
+      <ImageView fitHeight="996.0" fitWidth="2322.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="183.0" layoutY="42.0" prefHeight="913.0" prefWidth="1669.0" styleClass="pane-box">
+         <children>
+            <TextField fx:id="txtFullname" layoutX="246.0" layoutY="316.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField fx:id="txtCity" layoutX="249.0" layoutY="473.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField fx:id="txtAddress" layoutX="247.0" layoutY="394.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField fx:id="txtPostalcode" layoutX="249.0" layoutY="558.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField fx:id="txtAge" layoutX="249.0" layoutY="810.0" prefHeight="41.0" prefWidth="169.0" />
+            <Group layoutX="964.0" layoutY="167.0">
+               <children>
+                  <Group layoutX="-3.0" layoutY="86.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="3.0" layoutY="-55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-In">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="dtpkCheckin" layoutY="-51.0" prefHeight="41.0" prefWidth="169.0" promptText="2023-04-01" />
+                        <Text fill="WHITE" layoutX="201.0" layoutY="-57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-Out">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="dtpkCheckout" layoutX="199.0" layoutY="-52.0" prefHeight="41.0" prefWidth="169.0" promptText="2023-04-12" />
+                        <Text fill="WHITE" layoutX="2.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="cmbSelectRoom" layoutY="30.0" prefHeight="41.0" prefWidth="169.0" promptText="R00-001" />
+                        <Text fill="WHITE" layoutX="200.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="cmbGuest" layoutX="199.0" layoutY="32.0" prefHeight="41.0" prefWidth="169.0" promptText="1" />
+                     </children>
+                  </Group>
+               </children>
+            </Group>
+            <Separator layoutX="239.0" layoutY="255.0" prefHeight="0.0" prefWidth="343.0" />
+            <Text fill="WHITE" layoutX="35.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Information">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font></Text>
+            <Group layoutX="962.0" layoutY="515.0" />
+            <JFXButton layoutX="1408.0" layoutY="69.0" onAction="#btnBookingManageOnAction" style="-fx-background-color: #013D45;" text="Manage" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Text fill="WHITE" layoutX="246.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="246.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="246.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="246.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal Code">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="246.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Country">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="247.0" layoutY="716.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="246.0" layoutY="803.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="237.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guest Information">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtEmail" layoutX="249.0" layoutY="726.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField fx:id="txtCountry" layoutX="249.0" layoutY="647.0" prefHeight="41.0" prefWidth="355.0" />
+            <JFXButton layoutX="962.0" layoutY="439.0" onAction="#btnPayOnAction" prefHeight="46.0" prefWidth="375.0" style="-fx-background-color: #013D45;" text="Pay" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="963.0" layoutY="381.0" onAction="#btnReservedOnAction" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: yellow;" text="Reserved">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="1158.0" layoutY="381.0" onAction="#btnConfirmOnAction" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: yellow;" text="Book">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="3.0" layoutY="2.0" prefHeight="996.0" prefWidth="125.0" style="-fx-background-color: #013D45;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="44.0" layoutX="31.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/img/background/original-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="dashboardbtn" layoutX="27.0" layoutY="140.0" onAction="#btnDashboardOnAction" text="dashboard">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/Dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="bookingbtn" layoutX="24.0" layoutY="226.0" onAction="#btnBookingOnAction" text="booking">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/menu_book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="reservationbtn" layoutX="22.0" layoutY="305.0" onAction="#btnReservationOnAction" text="reservation">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/Assignment.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="roombtn" layoutX="23.0" layoutY="385.0" onAction="#btnRoomOnAction" text="room">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/King%20bed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="stockbtn" layoutX="26.0" layoutY="466.0" onAction="#btnStockOnAction" text="stock">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/inventory.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="employeebtn" layoutX="32.0" layoutY="551.0" onAction="#btnEmployeeOnAction" text="employee">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/group.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="billingbtn" layoutX="25.0" layoutY="621.0" onAction="#btnBillingOnAction" text="billing">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/attach_money.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="reportbtn" layoutX="27.0" layoutY="698.0" onAction="#btnReportOnAction" text="report">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/🦆%20icon%20_bar%20chart_.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="logoutbtn" layoutX="18.0" layoutY="901.0" onAction="#btnLogoutOnAction">
+               <graphic>
+                  <ImageView fitHeight="73.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/NicePng_cammy-png_1829287%201.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="settingbtn" layoutX="28.0" layoutY="779.0" onAction="#btnSettingOnAction" text="Button">
+               <graphic>
+                  <ImageView fitHeight="43.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/img/navigation_icon/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane layoutX="375.0" layoutY="157.0" prefHeight="93.0" prefWidth="139.0" styleClass="box">
+         <children>
+            <Text fill="WHITE" layoutX="22.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblavailableroom" fill="#e5ff00" layoutX="63.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="575.0" layoutY="156.0" prefHeight="93.0" prefWidth="139.0" styleClass="box">
+         <children>
+            <Text fill="WHITE" layoutX="31.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booked">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblBookedroom" fill="#fff30f" layoutX="60.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Text fill="WHITE" layoutX="375.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Info">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Pane layoutX="764.0" layoutY="156.0" prefHeight="93.0" prefWidth="139.0" styleClass="box">
+         <children>
+            <Text fill="WHITE" layoutX="22.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reserved">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="lblreservedroom" fill="#fff30f" layoutX="60.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

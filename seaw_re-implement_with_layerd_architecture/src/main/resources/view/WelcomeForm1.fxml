@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="985.0" prefWidth="1919.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.WelcomeFormController">
+   <children>
+      <ImageView fitHeight="988.0" fitWidth="2013.0" layoutX="-10.0" layoutY="1.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="txtTime" fill="WHITE" layoutX="785.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="18:33">
+         <font>
+            <Font name="Bodoni Bd BT Bold" size="96.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="166.0" fitWidth="159.0" layoutX="71.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/img/background/original-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1724.0" layoutY="889.0" onAction="#btnLoginOnAction" prefHeight="45.0" prefWidth="151.0" styleClass="Welcome-from-button" text="Login" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </JFXButton>
+      <Text fill="WHITE" layoutX="110.0" layoutY="920.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Discover a new level of luxury with our curated villa offerings&quot;">
+         <font>
+            <Font name="Blackadder ITC" size="38.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

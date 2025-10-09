@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="996.0" prefWidth="1918.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.LoginPageController">
+   <children>
+      <ImageView fitHeight="1000.0" fitWidth="1923.0" layoutX="1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="848.0" fitWidth="581.0" layoutX="679.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/img/background/Rectangle%2012.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="86.0" fitWidth="121.0" layoutX="919.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/img/background/login%20icon.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="827.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="welcome back">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="826.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to your account">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btnLogin" layoutX="798.0" layoutY="748.0" onAction="#btnLoginOnAction" prefHeight="35.0" prefWidth="337.0" style="-fx-background-color: yellow;" text="Login" />
+      <VBox layoutX="785.0" layoutY="501.0" prefHeight="170.0" prefWidth="438.0">
+         <children>
+            <AnchorPane prefHeight="42.0" prefWidth="438.0" styleClass="textPane">
+               <children>
+                  <TextField fx:id="txtUserName" layoutX="13.0" layoutY="8.0" onKeyReleased="#textFields_Key_Released" prefHeight="35.0" prefWidth="337.0" promptText="parakkamabahu" styleClass="textField" />
+                  <Label layoutX="13.0" layoutY="-17.0" styleClass="textLabel" text="Username" textFill="WHITE" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <Label fx:id="lblError2" alignment="CENTER" prefHeight="17.0" prefWidth="355.0" textFill="#ee0000" />
+            <AnchorPane prefHeight="42.0" prefWidth="438.0" styleClass="textPane">
+               <children>
+                  <Label layoutX="14.0" layoutY="13.0" prefHeight="17.0" prefWidth="337.0" styleClass="textLabel" text="Password" textFill="WHITE" />
+                  <PasswordField fx:id="TxtPassword" layoutX="13.0" layoutY="35.0" onKeyReleased="#textFields_Key_Released" prefHeight="35.0" prefWidth="337.0" promptText="**********" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <Label fx:id="lblError1" alignment="CENTER" prefHeight="17.0" prefWidth="355.0" textFill="#ee0000" />
+            <Text fill="#eb0000" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="363.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

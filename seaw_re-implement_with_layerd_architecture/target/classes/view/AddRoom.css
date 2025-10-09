@@ -1,0 +1,71 @@
+.table-view {
+    -fx-background-color: white;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #f2f2f2;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
+}
+
+.table-cell {
+    -fx-alignment: center;
+}
+
+.table-column {
+    -fx-alignment: center;
+}
+
+.table-header-background {
+    -fx-background-color: #0099ff;
+}
+
+.table-header-background .label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.table-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.table-cell:selected {
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:odd:selected {
+    -fx-background-color: #0066cc;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:even:selected {
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
+}
+
+.table-view:focused .table-row-cell:even:selected:focused,
+.table-view:focused .table-row-cell:odd:selected:focused {
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
+}
+
+.table-view:focused .table-row-cell:even:selected,
+.table-view:focused .table-row-cell:odd:selected {
+    -fx-background-color: #0099ff;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:odd:hover {
+    -fx-background-color: #e6e6e6;
+}
+
+.table-row-cell:even:hover {
+    -fx-background-color: #e6e6e6;
+}
+
+
+

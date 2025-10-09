@@ -1,0 +1,958 @@
+package lk.ijse.projectseaw.controller;
+
+import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import lk.ijse.projectseaw.db.DBConnection;
+import lk.ijse.projectseaw.dto.BookingDTO;
+import lk.ijse.projectseaw.dto.GuestDTO;
+import lk.ijse.projectseaw.dto.tm.Room;
+import lk.ijse.projectseaw.model.BookingModel;
+import lk.ijse.projectseaw.model.GuestModel;
+import lk.ijse.projectseaw.model.RoomModel;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import static java.sql.DriverManager.getConnection;
+
+
+//inhertance
+public class BookingInformationFormController implements Initializable {
+    public JFXButton dashboardbtn;
+    public JFXButton bookingbtn;
+    public JFXButton reservationbtn;
+    public JFXButton roombtn;
+    public JFXButton stockbtn;
+    public JFXButton employeebtn;
+    public JFXButton billingbtn;
+    public JFXButton settingbtn;
+    public JFXButton logoutbtn;
+
+    public TextField txtGuestId;
+    public TextField txtFullname;
+    public TextField txtAddress;
+    public TextField txtCity;
+    public TextField txtPostalcode;
+    public TextField txtCountry;
+    public TextField txtState;
+    public TextField txtAge;
+
+    public TextField txtBookingId;
+    public DatePicker dtpkCheckin;
+    public DatePicker dtpkCheckout;
+    public ComboBox cmbSelectRoom;
+    public ComboBox cmbGuest;
+    public TextField txtBookingGuestId;
+    public JFXButton reportbtn;
+
+    public Text lblavailableroom;
+    //public Text lblreservedroom;
+    public Text lblBookedroom;
+    public Text lblreservedroom;
+    public TextField txtEmail;
+
+    private String bookingId;
+    private String guestId;
+    private LocalDate checkin;
+    private LocalDate checkout;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> noOfGuestList = FXCollections.observableArrayList();
+        noOfGuestList.add("1");
+        noOfGuestList.add("2");
+        noOfGuestList.add("3");
+        noOfGuestList.add("4");
+        noOfGuestList.add("5");
+        cmbGuest.setItems(noOfGuestList);
+
+        updateAvailableRooms();
+        roomReservationStatistics();
+    }
+
+    public void roomReservationStatistics() {
+
+        try {
+            List<Room> availableRooms = RoomModel.getAvailableRooms();
+            lblavailableroom.setText(String.valueOf(availableRooms.size()));
+
+            List<Room> bookedRooms = RoomModel.getBookedRooms();
+            lblBookedroom.setText(String.valueOf(bookedRooms.size()));
+
+            List<Room> reservedRooms = RoomModel.getReservedRooms();
+            lblreservedroom.setText(String.valueOf(reservedRooms.size()));
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String updateAvailableRooms() {
+
+        String selectedRoom = null;
+        try {
+            List<String> availableRooms = RoomModel.displayAvailableRooms();
+
+            cmbSelectRoom.getItems().clear();
+            cmbSelectRoom.getItems().addAll(availableRooms);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return selectedRoom;
+
+    }
+
+
+
+
+    public void btnDashboardOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/DashBord.fxml"));
+        Stage window = (Stage) dashboardbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Dashboard");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnBookingOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/BookingInformationForm.fxml"));
+        Stage window = (Stage) bookingbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Booking Management");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnReservationOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/ReservationForm.fxml"));
+        Stage window = (Stage) reservationbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Reservation");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnRoomOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/RoomManagementForm.fxml"));
+        Stage window = (Stage) roombtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Room Management");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnStockOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/StockManagementForm.fxml"));
+        Stage window = (Stage) stockbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Stock Management");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnEmployeeOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/EmployeeManagementForm.fxml"));
+        Stage window = (Stage) employeebtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Employee Management");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnBillingOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/BillingForm.fxml"));
+        Stage window = (Stage) billingbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Billing");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnSettingOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(getClass().getResource("/view/Settings1From.fxml"));
+        Stage window = (Stage) settingbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Settings");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+
+    public void btnLogoutOnAction(ActionEvent actionEvent) throws IOException {
+        Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/LogOut.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Logout page");
+        stage.setMaximized(true);
+        stage.centerOnScreen();
+        stage.show();
+        currentStage.close();
+    }
+
+    public void btnBookingManageOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/BookingManagementForm.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Booking Management");
+        stage.setMaximized(true);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) {
+
+
+        /*//check guestId is already added or not
+        // check if fields are empty
+        if (guestFieldCheck(fullname, address, city, postalcode, country, customerEmail, String.valueOf(age))) {
+
+            if (validName(fullname)) {
+
+
+
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Please enter only characters. Don't use '2/@/#'. ").show();
+            }
+
+
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Please fill all the fields!").show();
+        }*/
+
+
+    }
+
+    public boolean guestFieldCheck(String fullname, String address, String city, String postalcode, String country, String state, String ageStr) {
+        if (fullname.isEmpty() || address.isEmpty() || city.isEmpty() || postalcode.isEmpty() || country.isEmpty() || state.isEmpty() || ageStr.isEmpty()) {
+            //new Alert(Alert.AlertType.WARNING, "Please fill in all fields!").show();
+            return false;
+        } else {
+            try {
+                Integer.parseInt(txtAge.getText());
+            } catch (NumberFormatException e) {
+                new Alert(Alert.AlertType.WARNING, "Please fill all the fields!").show();
+                return false;
+            }
+            return true;
+        }
+    }
+
+    public boolean validName(String name) {
+        // check if name is not null and matches the pattern "[a-zA-Z ]+"
+        return name != null && name.matches("[a-zA-Z ]+");
+    }
+
+    public boolean btnConfirmOnAction(ActionEvent actionEvent) throws Exception {
+        String guestgeneId = generateGuestId();
+        String fullname = txtFullname.getText();
+        String address = txtAddress.getText();
+        String city = txtCity.getText();
+        String postalcode = txtPostalcode.getText();
+        String country = txtCountry.getText();
+        String customerEmail = txtEmail.getText();
+        String ageText = txtAge.getText();
+
+        String bookingId = generateBookingId();
+        Date checkin = Date.valueOf(dtpkCheckin.getValue());
+        Date checkout = Date.valueOf(dtpkCheckout.getValue());
+        int noOfGuests = Integer.parseInt((String) cmbGuest.getValue());
+        String selectedRoom = (String) cmbSelectRoom.getValue();
+        String GetLastGuestId = getLastGuestId();
+        int age;
+
+        //for mail
+        String paymentId = generatePaymentId();
+        double roomRate = getRoomRateFromDatabase(selectedRoom);
+        LocalDate paymentDate = LocalDate.now();
+        String status = "Booked";
+
+        if (ageText.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "All fields are required.").show();
+            return false; // Exit the method or return false
+        } else {
+            try {
+                age = Integer.parseInt(ageText);
+            } catch (NumberFormatException e) {
+                new Alert(Alert.AlertType.ERROR, "All fields are required.").show();
+                return false; // Exit the method or return false
+            }
+        }
+
+        if(fullname.isEmpty() || address.isEmpty() || city.isEmpty() || postalcode.isEmpty() || country.isEmpty() || customerEmail.isEmpty()  ||
+                cmbGuest.getValue() == null || cmbGuest.getValue().toString().isEmpty() || cmbSelectRoom.getValue() == null ||
+                cmbSelectRoom.getValue().toString().isEmpty()){
+            new Alert(Alert.AlertType.ERROR, "All fields are required.").show();
+            return false;
+        }
+
+
+        /*Transaction*/
+        Connection connection = null;
+
+        try {
+            connection = DBConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+
+            Guest guest = new Guest(guestgeneId, fullname, address, city, postalcode, country, customerEmail, age);
+            boolean guestAdded = GuestModel.save(guest);
+
+            if (!guestAdded) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            Booking bookingdeta = new Booking(bookingId, checkin, checkout, noOfGuests, selectedRoom, GetLastGuestId, status);
+            boolean bookingAdded = BookingModel.saveBooking(bookingdeta);
+            if (!bookingAdded) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            //Search & Update Item
+            boolean roomUpdated = updateRoomStatusInDatabase(selectedRoom, "booked", bookingId);
+            if (!roomUpdated) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            boolean paymentSaved = savePaymentToDatabase(paymentId, bookingId, guestgeneId, roomRate, paymentDate);
+            if (!paymentSaved) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            connection.commit();
+            connection.setAutoCommit(true);
+
+
+            if(bookingAdded){
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Booking added successfully!");
+                if (confirmationAlert.getResult() == ButtonType.OK) {
+                    confirmationAlert.showAndWait();
+                }
+            }
+
+
+            sendBookingConfirmationEmail(fullname, bookingId, checkin, checkout, noOfGuests, selectedRoom, customerEmail, status);
+            updateAvailableRooms();
+            updateRoomStatusInDatabase(selectedRoom, "booked", bookingId);
+            //PaymentForm(ActionEvent actionEvent);
+
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        return false;
+    }
+
+    public void PaymentForm(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/paymentConfirmationForm.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("payment Confirmation");
+        stage.setMaximized(true);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+
+            /*if (affectedRows > 0) {
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Booking added successfully!");
+                //sendBookingConfirmationEmail(fullname, bookingId, checkin, checkout, noOfGuests, selectedRoom, customerEmail, status);
+
+                confirmationAlert.showAndWait();
+                if (confirmationAlert.getResult() == ButtonType.OK) {
+                    // Update the room status
+                    //updateRoomStatusInDatabase(selectedRoom, "booked", bookingId);
+                    //updatePayementDatabase ();
+                    //updateAvailableRooms();
+
+                    try {
+
+                    } catch (IOException e) {
+                        // handle exception
+                    }
+                }
+            }*/
+
+
+
+    public void sendBookingConfirmationEmail(String fullname, String bookingId, Date checkin, Date checkout, int noOfGuests, String selectedRoom, String customerEmail, String status) {
+        StringBuilder messageContent = new StringBuilder();
+        messageContent.append("Dear ").append(fullname).append(",\n\n");
+
+        if (status.equalsIgnoreCase("reserved")) {
+            messageContent.append("Thank you for your reservation!\n\n");
+        } else {
+            messageContent.append("Thank you for your booking!\n\n");
+        }
+
+        messageContent.append("Booking Details:\n\n");
+        messageContent.append("Booking ID: ").append(bookingId).append("\n");
+        messageContent.append("Check-in Date: ").append(checkin).append("\n");
+        messageContent.append("Check-out Date: ").append(checkout).append("\n");
+        messageContent.append("Number of Guests: ").append(noOfGuests).append("\n");
+        messageContent.append("Selected Room: ").append(selectedRoom).append("\n\n");
+        messageContent.append("We look forward to welcoming you!\n\n");
+        messageContent.append("Best regards,\nYour Seaw Team");
+
+        EmailSender.sendEmail(customerEmail, "Booking Confirmation", messageContent.toString());
+    }
+
+
+    public boolean btnReservedOnAction(ActionEvent actionEvent) throws Exception{
+        String guestgeneId = generateGuestId();
+        String fullname = txtFullname.getText();
+        String address = txtAddress.getText();
+        String city = txtCity.getText();
+        String postalcode = txtPostalcode.getText();
+        String country = txtCountry.getText();
+        String customerEmail = txtEmail.getText();
+        int age = Integer.parseInt(txtAge.getText());
+
+        String bookingId = generateBookingId();
+        Date checkin = Date.valueOf(dtpkCheckin.getValue());
+        Date checkout = Date.valueOf(dtpkCheckout.getValue());
+        int noOfGuests = Integer.parseInt((String) cmbGuest.getValue());
+        String selectedRoom = (String) cmbSelectRoom.getValue();
+        String GetLastGuestId = getLastGuestId();
+        String status = "reserved";
+
+        //for mail
+        String paymentId = generatePaymentId();
+        double roomRate = getRoomRateFromDatabase(selectedRoom);
+        LocalDate paymentDate = LocalDate.now();
+
+
+        /*Transaction*/
+        Connection connection = null;
+
+        try {
+            connection = DBConnection.getInstance().getConnection();
+            connection.setAutoCommit(false);
+
+            Guest guest = new Guest(guestgeneId, fullname, address, city, postalcode, country, customerEmail, age);
+            boolean guestAdded = GuestModel.save(guest);
+
+            if (!guestAdded) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            Booking bookingdeta = new Booking(bookingId, checkin, checkout, noOfGuests, selectedRoom, GetLastGuestId, status);
+            boolean bookingAdded = BookingModel.saveBooking(bookingdeta);
+            if (!bookingAdded) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            //Search & Update Item
+            boolean roomUpdated = updateRoomStatusInDatabase(selectedRoom, "reserved", bookingId);
+            if (!roomUpdated) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            boolean paymentSaved = savePaymentToDatabase(paymentId, bookingId, guestgeneId, roomRate, paymentDate);
+            if (!paymentSaved) {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+
+            connection.commit();
+            connection.setAutoCommit(true);
+
+
+            if (paymentSaved) {
+                Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Booking added successfully!");
+                if (confirmationAlert.getResult() == ButtonType.OK) {
+                    confirmationAlert.showAndWait();
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Booking has not been saved successfully").show();
+            }
+
+            updateReservationTable();
+            sendBookingConfirmationEmail(fullname, bookingId, checkin, checkout, noOfGuests, selectedRoom, customerEmail, status);
+            updateAvailableRooms();
+            updateRoomStatusInDatabase(selectedRoom, "reserved", bookingId);
+            //PaymentForm(ActionEvent actionEvent);
+
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        return false;
+
+
+    }
+
+    public void updateReservationTable(){
+        String reservationId = generateReservationId();
+        String fullname = txtFullname.getText();
+        LocalDate checkin = dtpkCheckin.getValue();
+        LocalDate checkout = dtpkCheckout.getValue();
+        int noOfGuests = Integer.parseInt((String) cmbGuest.getValue());
+        String selectedRoom = (String) cmbSelectRoom.getValue();
+
+        try (Connection conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234")) {
+            String query = "INSERT INTO Reservation (reservationId, guestName, checkIn, checkOut, room_id, noOfGuest, reservation_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, reservationId);
+            pstmt.setString(2, fullname);
+            pstmt.setString(3, String.valueOf(checkin));
+            pstmt.setString(4, String.valueOf(checkout));
+            pstmt.setString(5, selectedRoom);
+            pstmt.setString(6, String.valueOf(noOfGuests));
+            pstmt.setString(7, "reserved");
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("Error saving payment to database: " + e.getMessage());
+        }
+
+    }
+
+    /*public void updatePayementDatabase (){
+        // Get the booking and guest IDs
+        String bookingId = getLastBookingId();
+        String guestId = getLastGuestId();
+
+        // Get the amount from the room table
+        String selectedRoom = (String) cmbSelectRoom.getValue();
+        double roomRate = getRoomRateFromDatabase(selectedRoom);
+        //double totalAmount = roomRate + Double.parseDouble(txtAmount.getText());
+
+        // Get the payment date
+        LocalDate paymentDate = LocalDate.now();
+
+        // Save payment information to database
+        String paymentId = generatePaymentId();
+        savePaymentToDatabase(paymentId, bookingId, guestId, roomRate, paymentDate);
+
+        updateAvailableRooms();
+    }*/
+
+    private boolean savePaymentToDatabase(String paymentId, String bookingId, String guestId, double amount, LocalDate paymentDate) throws Exception{
+       Connection conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+       String query = "INSERT INTO Payment (payment_id, booking_id, guest_id, amount, payment_date) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, paymentId);
+            pstmt.setString(2, bookingId);
+            pstmt.setString(3, guestId);
+            pstmt.setDouble(4, amount);
+            pstmt.setDate(5, Date.valueOf(paymentDate));
+
+        return pstmt.executeUpdate() > 0;
+
+
+    }
+
+
+    static boolean validateBookingIdFormat(String bookingId) {
+        String regex = "^bk\\d{3}$";
+        return bookingId.matches(regex);
+    }
+
+
+
+
+    public boolean updateRoomStatusInDatabase(String roomId, String roomStatus, String bookingId) throws Exception{
+        String room_Id = roomId;
+        String room_Status = roomStatus;
+        String booking_id = bookingId;
+
+        // Update the room status in the RoomStatus table of the database
+
+            Connection conn = getConnection("jdbc:mysql://localhost:3306/seew", "root", "1234");
+            String query = "UPDATE RoomStatus SET room_status = ?, booking_id = ? WHERE room_id = ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, room_Status);
+            pstmt.setString(2, booking_id);
+            pstmt.setString(3, room_Id);
+
+        return pstmt.executeUpdate() > 0;
+    }
+
+    @FXML
+    public void btnPayOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/paymentConfirmationForm.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Payment Confirmation");
+        stage.setMaximized(true);
+        stage.centerOnScreen();
+        stage.show();
+
+    }
+
+    public double getRoomRateFromDatabase(String selectedRoom) {
+        // Initialize the rate to zero
+        double rate = 0.0;
+
+        // Connect to the database
+        try (Connection conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234")) {
+            // Create a prepared statement to retrieve the room rate based on the room type
+            String sql = "SELECT roomRate FROM Room WHERE room_id = ?";
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                // Set the parameter values
+                stmt.setString(1, selectedRoom);
+
+                // Execute the query and get the result set
+                try (ResultSet rs = stmt.executeQuery()) {
+                    // If a result is found, retrieve the rate
+                    if (rs.next()) {
+                        rate = rs.getDouble("roomRate");
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return rate;
+    }
+
+    private String generateGuestId() {
+        /*UUID uuid = UUID.randomUUID();
+        String paymentId = "PAY-" + uuid.toString();
+        return paymentId;*/
+
+        // Establish database connection
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String newGuestgId = "";
+
+        try {
+            conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+
+            // Query to get the last booking ID
+            String query = "SELECT guest_id FROM Guest ORDER BY guest_id DESC LIMIT 1";
+
+            // Execute the query
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            // Get the last booking ID
+            String lastGuestId = "";
+            if (rs.next()) {
+                lastGuestId = rs.getString("guest_id");
+            }
+
+            // Generate the new booking ID
+            if (lastGuestId.isEmpty()) {
+                newGuestgId = "g001";
+            } else {
+                int lastId = Integer.parseInt(lastGuestId.substring(2));
+                newGuestgId = "g" + String.format("%03d", lastId + 1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close database connection and resources
+            try {
+                rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                stmt.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+
+        return newGuestgId;
+    }
+
+    private String generateBookingId() {
+        /*UUID uuid = UUID.randomUUID();
+        String paymentId = "PAY-" + uuid.toString();
+        return paymentId;*/
+
+        // Establish database connection
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String newBookingId = "";
+
+        try {
+            conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+
+            // Query to get the last booking ID
+            String query = "SELECT booking_id FROM Booking ORDER BY booking_id DESC LIMIT 1";
+
+            // Execute the query
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            // Get the last booking ID
+            String lastBookingId = "";
+            if (rs.next()) {
+                lastBookingId = rs.getString("booking_id");
+            }
+
+            // Generate the new booking ID
+            if (lastBookingId.isEmpty()) {
+                newBookingId = "b001";
+            } else {
+                int lastId = Integer.parseInt(lastBookingId.substring(2));
+                newBookingId = "bk" + String.format("%03d", lastId + 1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close database connection and resources
+            try {
+                rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                stmt.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+
+        return newBookingId;
+    }
+
+
+    private String generatePaymentId() {
+        /*UUID uuid = UUID.randomUUID();
+        String paymentId = "PAY-" + uuid.toString();
+        return paymentId;*/
+
+        // Establish database connection
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String newPaymentId = "";
+
+        try {
+            conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+
+            // Query to get the last booking ID
+            String query = "SELECT payment_id FROM Payment ORDER BY payment_id DESC LIMIT 1";
+
+            // Execute the query
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            // Get the last booking ID
+            String lastPaymentId = "";
+            if (rs.next()) {
+                lastPaymentId = rs.getString("payment_id");
+            }
+
+            // Generate the new booking ID
+            if (lastPaymentId.isEmpty()) {
+                newPaymentId = "p001";
+            } else {
+                int lastId = Integer.parseInt(lastPaymentId.substring(2));
+                newPaymentId = "p" + String.format("%03d", lastId + 1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close database connection and resources
+            try {
+                rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                stmt.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+
+        return newPaymentId;
+    }
+
+    private String generateReservationId() {
+        // Establish database connection
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String newReservationId = "";
+
+        try {
+            conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+
+            // Query to get the last booking ID
+            String query = "SELECT reservationId FROM Reservation ORDER BY reservationId DESC LIMIT 1";
+
+            // Execute the query
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            // Get the last booking ID
+            String lastReservationId = "";
+            if (rs.next()) {
+                lastReservationId = rs.getString("reservationId");
+            }
+
+            // Generate the new booking ID
+            if (lastReservationId.isEmpty()) {
+                newReservationId = "rsv001";
+            } else {
+                String numericPart = lastReservationId.substring(3); // Extract the numeric part after "rsv"
+                int lastId = Integer.parseInt(numericPart);
+                newReservationId = "rsv" + String.format("%03d", lastId + 1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close database connection and resources
+            try {
+                rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                stmt.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+
+        return newReservationId;
+    }
+
+    public String getLastBookingId() {
+        String lastBookingId = "";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Establish database connection
+            conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+
+            // Query to get the last guest ID
+            String query = "SELECT booking_id FROM Booking ORDER BY booking_id DESC LIMIT 1";
+
+            // Execute the query
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            // Get the last guest ID
+            if (rs.next()) {
+                lastBookingId = rs.getString("booking_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close database connection and resources
+            try {
+                rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                stmt.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+
+        return lastBookingId;
+    }
+
+    public String getLastGuestId() {
+        String lastGuestId = "";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            // Establish database connection
+            conn = getConnection("jdbc:mysql://localhost:3306/Seew", "root", "1234");
+
+            // Query to get the last guest ID
+            String query = "SELECT guest_id FROM Guest ORDER BY guest_id DESC LIMIT 1";
+
+            // Execute the query
+            stmt = conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+            // Get the last guest ID
+            if (rs.next()) {
+                lastGuestId = rs.getString("guest_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close database connection and resources
+            try {
+                rs.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                stmt.close();
+            } catch (Exception e) { /* ignored */ }
+            try {
+                conn.close();
+            } catch (Exception e) { /* ignored */ }
+        }
+
+        return lastGuestId;
+    }
+
+
+
+
+
+    public void btnReportOnAction(ActionEvent actionEvent) throws IOException {
+        Parent fxmlLoader =  FXMLLoader.load(getClass().getResource("/view/ReportForm.fxml"));
+        Stage window = (Stage)reportbtn.getScene().getWindow();
+        window.setScene(new Scene(fxmlLoader));
+        window.setTitle("Report");
+        window.setMaximized(true);
+        window.centerOnScreen();
+    }
+}

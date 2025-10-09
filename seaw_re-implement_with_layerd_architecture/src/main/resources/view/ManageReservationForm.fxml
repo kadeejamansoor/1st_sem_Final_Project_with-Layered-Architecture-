@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="913.0" prefWidth="1669.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.projectseaw.controller.ManageReservationController">
+   <children>
+      <ImageView fitHeight="1023.0" fitWidth="1898.0" layoutY="-14.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../assets/img/background/bg%20Dashboard%20only%20image.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="53.0" layoutY="45.0" prefHeight="39.0" prefWidth="281.0" text="Booking Management" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Group layoutX="282.0" layoutY="161.0">
+         <children>
+            <TextField layoutX="7.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField layoutX="7.0" layoutY="84.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField layoutX="6.0" layoutY="249.0" prefHeight="41.0" prefWidth="355.0" />
+            <TextField layoutX="7.0" layoutY="167.0" prefHeight="41.0" prefWidth="355.0" />
+         </children>
+      </Group>
+      <Group layoutX="1135.0" layoutY="413.0" />
+      <Group layoutX="292.0" layoutY="139.0">
+         <children>
+            <Label layoutX="9.0" prefHeight="21.0" prefWidth="154.0" text="Full Name" textFill="WHITE" />
+            <Label layoutX="8.0" layoutY="80.0" prefHeight="21.0" prefWidth="154.0" text="Address" textFill="WHITE" />
+            <Label layoutX="3.0" layoutY="162.0" prefHeight="21.0" prefWidth="154.0" text="City" textFill="WHITE" />
+            <Label layoutY="245.0" prefHeight="21.0" prefWidth="154.0" text="Postal Coade" textFill="WHITE" />
+         </children>
+      </Group>
+      <Group layoutX="1347.0" layoutY="251.0">
+         <children>
+            <JFXButton prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: #013D45;" text="Clear" textFill="#f8f5f5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="1.0" layoutY="60.0" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: yellow;" text="Delete">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+
+            <JFXButton layoutX="1.0" layoutY="135.0" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: yellow;" text="Update">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="4.0" layoutY="208.0" prefHeight="31.0" prefWidth="127.0" style="-fx-background-color: yellow;" text="Save">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Group>
+      <Pane layoutX="23.0" layoutY="14.0" opacity="0.55" prefHeight="925.0" prefWidth="1840.0" styleClass="pane-box">
+         <effect>
+            <Glow />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>
