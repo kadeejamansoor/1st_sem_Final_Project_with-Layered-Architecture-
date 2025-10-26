@@ -17,7 +17,7 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent parent =  FXMLLoader.load(getClass().getResource("/view/WelcomeForm1.fxml"));
+        Parent parent =  FXMLLoader.load(getClass().getResource("/view/DashBord.fxml"));
         stage.setScene(new Scene(parent));
         stage.setTitle("Hotel Sea viwe");
         stage.centerOnScreen();

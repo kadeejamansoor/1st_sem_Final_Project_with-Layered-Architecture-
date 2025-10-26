@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS Employee;
 CREATE TABLE IF NOT EXISTS Employee (
                                         empid VARCHAR(15) NOT NULL,
                                         name VARCHAR(50),
+
                                         contact VARCHAR(100),
                                         address VARCHAR(100),
                                         role VARCHAR(100),
